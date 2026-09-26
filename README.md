@@ -3,6 +3,9 @@
 Application collaborative organisée en tableaux, listes et cartes déplaçables par glisser-déposer, pour suivre l’avancement
 des tâches d’une petite équipe. Projet n°9 du cahier des charges « 9 projets fictifs ».
 
+**🔗 Démo en ligne :** https://mes-apps.wuaze.com/flowboard/ — **📲 Installer l’application** (mobile, tablette, ordinateur) : https://mes-apps.wuaze.com/flowboard/#/installer
+
+
 ![Tableau](docs/tableau.png)
 ![Détail d’une carte](docs/carte.png)
 ![Mes tableaux](docs/tableaux.png)

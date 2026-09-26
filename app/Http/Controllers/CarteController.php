@@ -210,7 +210,7 @@ class CarteController extends Controller
     public function joindre(Request $request, int $id): JsonResponse
     {
         $c = $this->carte($request, $id);
-        $request->validate(['fichier' => ['required', 'file', 'max:2048', 'mimes:pdf,png,jpg,jpeg,gif,txt,docx,xlsx,pptx,csv,zip']], ['fichier.max' => 'Le fichier ne doit pas dépasser 2 Mo.', 'fichier.mimes' => 'Type de fichier non autorisé.']);
+        $request->validate(['fichier' => ['required', 'file', 'max:2048', 'mimes:pdf,png,jpg,jpeg,gif,txt,docx,xlsx,pptx,csv,zip', 'extensions:pdf,png,jpg,jpeg,gif,txt,docx,xlsx,pptx,csv,zip']], ['fichier.max' => 'Le fichier ne doit pas dépasser 2 Mo.', 'fichier.mimes' => 'Type de fichier non autorisé.', 'fichier.extensions' => 'Type de fichier non autorisé.']);
         $f = $request->file('fichier');
         $chemin = $f->storeAs('pieces/'.$c->id, bin2hex(random_bytes(8)).'.'.$f->extension(), 'local');
         $rec = Fichier::create(['carte_id' => $c->id, 'user_id' => $request->user()->id, 'nom' => mb_substr(preg_replace('/[^\pL\pN._ \-]/u', '', $f->getClientOriginalName()), 0, 150), 'chemin' => $chemin, 'taille' => $f->getSize(), 'mime' => $f->getMimeType()]);
